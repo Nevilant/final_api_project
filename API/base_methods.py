@@ -1,3 +1,4 @@
+import allure
 
 
 class BaseMethods:
@@ -14,5 +15,10 @@ class BaseMethods:
             headers['Authorization'] = token
         return headers
 
+    @allure.step("Проверка, что статус код 200")
     def check_status_code_is_200(self):
         assert self.response.status_code == 200
+
+    @allure.step("Проверка, что статус код 401")
+    def check_status_code_is_401(self):
+        assert self.response.status_code == 401

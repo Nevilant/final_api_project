@@ -9,11 +9,91 @@ DATA = [
         {
             'text': f'{random.randint(1, 100)}',
             'url': 'https://www.google.com/',
-            'tags': ['python', 'javascript'],
+            'tags': ['python'],
             'info': {
                 'author': '<NAME>',
                 'author_email': '<EMAIL>',
             }
+        },
+        "Blocker"
+    ),
+    (
+        {
+            'text': f'Memes from Mexes',
+            'url': 'https://www.google.com/',
+            'tags': ['book', 'video'],
+            'info': {
+                'author': '<NAME>',
+                'author_email': '<EMAIL>',
+            }
+        },
+        "Blocker"
+    ),
+    (
+        {
+            'text': f'!"№;%:?*()_+-=',
+            'url': 'https://www.google.com/',
+            'tags': ['book', 'video'],
+            'info': {
+                'author': '<NAME>',
+                'author_email': '<EMAIL>',
+            }
+        },
+        "Normal"
+    ),
+    (
+        {
+            'text': f'{random.randint(1, 100)}',
+            'url': 'www.google.com/',
+            'tags': ['python'],
+            'info': {
+                'author': '<NAME>',
+                'author_email': '<EMAIL>',
+            }
+        },
+        "Critical"
+    ),
+    (
+        {
+            'text': f'{random.randint(1, 100)}',
+            'url': 'https://www.google.com/',
+            'tags': [],
+            'info': {
+                'author': '<NAME>',
+                'author_email': '<EMAIL>',
+            }
+        },
+        "Normal"
+    ),
+    (
+        {
+            'text': f'{random.randint(1, 100)}',
+            'url': 'https://www.google.com/',
+            'tags': ['python'],
+            'info': {
+                'author': '<NAME>',
+                'author_email': '<EMAIL>',
+            }
+        },
+        "Blocker"
+    ),
+    (
+        {
+            'text': f'{random.randint(1, 100)}',
+            'url': 'https://www.google.com/',
+            'tags': ['python'],
+            'info': {
+                'author': '<NAME>'
+            }
+        },
+        "Blocker"
+    ),
+    (
+        {
+            'text': f'{random.randint(1, 100)}',
+            'url': 'https://www.google.com/',
+            'tags': ['python'],
+            'info': {}
         },
         "Blocker"
     ),
