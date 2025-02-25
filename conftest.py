@@ -1,7 +1,9 @@
+from random import choice
+
 import pytest
 
-from endpoints.get_is_token_live_method import IsTokenLiveMethod
-from endpoints.post_authorize_method import AuthorizeMethod
+from API.authorize_methods import AuthorizeMethod
+from API.meme_methods import MemeMethods
 
 
 @pytest.fixture()
@@ -10,11 +12,24 @@ def wrapper_authorize():
 
 
 @pytest.fixture()
-def wrapper_is_token_live():
-    return IsTokenLiveMethod()
+def get_token(wrapper_authorize):
+    payload = {
+        'name': 'pre_condition'
+    }
+    json_data = wrapper_authorize.authorize(payload)
+    return json_data.json()['token']
 
 
-@pytest.fixture(scope='session')
-def get_authorization_token(wrapper_authorize):
-    token = wrapper_authorize.json()["token"]
-    return token
+@pytest.fixture()
+def wrapper_meme():
+    return MemeMethods()
+
+
+@pytest.fixture()
+def get_random_id_meme(wrapper_meme, get_token):
+    json_data = wrapper_meme.get_all_memes(get_token)
+    response_json = json_data.json()
+    memes_list = response_json['data']
+    all_ids = [meme['id'] for meme in memes_list]
+    id_meme = choice(all_ids)
+    return id_meme

@@ -1,6 +1,6 @@
 
 
-class BaseEndpoints:
+class BaseMethods:
     BASE_URL = 'http://167.172.172.115:52355'
     response = None
     json = None
@@ -11,7 +11,7 @@ class BaseEndpoints:
             'Content-Type': 'application/json'
         }
         if token:
-            headers['Authorization'] = {token}
+            headers['Authorization'] = token
         return headers
 
     def check_status_code_is_200(self):

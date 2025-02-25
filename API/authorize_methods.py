@@ -1,10 +1,10 @@
 import allure
 import requests
 
-from API.base_endpoints import BaseEndpoints
+from API.base_methods import BaseMethods
 
 
-class AuthorizeMethod(BaseEndpoints):
+class AuthorizeMethod(BaseMethods):
 
     @allure.step("Авторизация")
     def authorize(self, payload):
@@ -13,4 +13,11 @@ class AuthorizeMethod(BaseEndpoints):
             headers=super().headers(),
             json=payload
         )
-        return self.response.json()
+        return self.response
+
+    @allure.step("Жив ли токен?")
+    def is_token_live(self, token):
+        self.response = requests.get(
+            url=f'{self.BASE_URL}/authorize/{token}',
+        )
+        return self.response
