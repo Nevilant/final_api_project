@@ -27,6 +27,12 @@ DATA = [
         },
         "minor"
     ),
+    (
+        {
+            "name": ""
+        },
+        "Blocker"
+    ),
 ]
 
 
