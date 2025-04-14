@@ -44,4 +44,3 @@ def test_1_authorize(wrapper_authorize, data, severity):
 def test_2_authorize(get_token, wrapper_authorize, token, severity):
     wrapper_authorize.is_token_live(token)
     wrapper_authorize.check_status_code_is_not_200()
-    # wrapper_authorize.check_status_code_is_200()
