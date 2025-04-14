@@ -6,12 +6,12 @@ from API.authorize_methods import AuthorizeMethod
 from API.meme_methods import MemeMethods
 
 
-@pytest.fixture()
+@pytest.fixture(scope='session')
 def wrapper_authorize():
     return AuthorizeMethod()
 
 
-@pytest.fixture()
+@pytest.fixture(scope='session')
 def get_token(wrapper_authorize):
     payload = {
         'name': 'pre_condition'
