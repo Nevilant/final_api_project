@@ -19,7 +19,7 @@ DATA = [
     ),
     (
         {
-            'text': f'Memes from Mexes',
+            'text': '',
             'url': 'https://www.google.com/',
             'tags': ['book', 'video'],
             'info': {
@@ -75,7 +75,7 @@ DATA = [
                 'author_email': '<EMAIL>',
             }
         },
-        "Blocker"
+        "Normal"
     ),
     (
         {
@@ -86,7 +86,7 @@ DATA = [
                 'author': '<NAME>'
             }
         },
-        "Blocker"
+        "Critical"
     ),
     (
         {
@@ -95,18 +95,50 @@ DATA = [
             'tags': ['python'],
             'info': {}
         },
-        "Blocker"
+        "Normal"
     ),
+    (
+        {
+            'text': f'{random.randint(1, 100)}',
+            'url': 'https://www.google.com/',
+            'tags': 'python',
+            'info': {
+                'author': '<NAME>',
+                'author_email': '<EMAIL>',
+            }
+        },
+        "Normal"
+    ),
+    (
+        {
+            'text': f'{random.randint(1, 100)}',
+            'url': 'https://www.google.com/',
+            'info': {
+                'author': '<NAME>',
+                'author_email': '<EMAIL>',
+            }
+        },
+        "Normal"
+    ),
+    (
+        {
+            'text': f'{random.randint(1, 100)}',
+            'url': 'https://www.google.com/',
+        },
+        "Normal"
+    )
 ]
 
 
 @allure.title("Получение всех мемов")
+@allure.severity("Critical")
 def test_get_all_meme(get_token, wrapper_meme):
     wrapper_meme.get_all_memes(get_token)
     wrapper_meme.check_status_code_is_200()
 
 
-@allure.title("Получение случайного мема")
+@allure.title("Получение мема по id")
+@allure.severity("Blocker")
 def test_get_meme_by_id(get_token, wrapper_meme, get_random_id_meme):
     wrapper_meme.get_meme_by_id(get_token, get_random_id_meme)
     wrapper_meme.check_status_code_is_200()
@@ -121,6 +153,7 @@ def test_post_meme(get_token, wrapper_meme, data, severity):
 
 
 @allure.title("Удаление мема")
+@allure.severity("Critical")
 def test_delete_meme(get_token, wrapper_meme):
     payload = {
         "text": "for delete",
