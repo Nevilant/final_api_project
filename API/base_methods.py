@@ -32,6 +32,10 @@ class BaseMethods:
     def check_status_code_is_not_200(self):
         assert self.response.status_code != 200
 
+    @allure.step("Проверка, что статус код 400")
+    def check_status_code_is_400(self):
+        assert self.response.status_code == 400
+
     @allure.step("Проверка, что статус код 401")
     def check_status_code_is_401(self):
         assert self.response.status_code == 401
